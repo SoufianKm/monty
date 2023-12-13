@@ -16,10 +16,10 @@
 #define DELIM " \t\n"
 
 /**
- * struct bus_s - variables -args, file, line content
+ * struct bus_s - variables -args, file, line line
  * @arg: value
  * @file: pointer to monty file
- * @content: line content
+ * @line: line content
  * @lifi: flag change stack <-> queue
  *
  * Description: carries values through the program
@@ -45,9 +45,9 @@ extern bus_t bus;
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -60,8 +60,8 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 int execute(char *, stack_t **, unsigned int, FILE *);

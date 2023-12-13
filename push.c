@@ -28,7 +28,7 @@ void _push(stack_t **head, unsigned int count)
 			fclose(bus.file);
 			free(bus.line);
 			free_stack(*head);
-			exit(EXIT_FAILURE); 
+			exit(EXIT_FAILURE);
 		}
 	} else
 	{

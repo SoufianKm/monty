@@ -1,11 +1,10 @@
 #include "monty.h"
 
 bus_t bus = {NULL, NULL, NULL, 0};
-
 /**
  * main - Entry point
- * @argc: size of arguments
- * @argv: pointer to array of arguments
+ * @ac: size of arguments
+ * @av: pointer to array of arguments
  *
  * Return: 0 always on success
  */
@@ -15,8 +14,8 @@ int main(int ac, char **av)
 	stack_t *stack = NULL;
 	unsigned int count = 0;
 	char *line = NULL;
-        size_t linecap = 0;
-        ssize_t linelen;
+	size_t linecap = 0;
+	ssize_t linelen;
 
 	if (ac != 2)
 	{
@@ -35,7 +34,7 @@ int main(int ac, char **av)
 	while (linelen > 0)
 	{
 		line = NULL;
-        	linelen = getline(&line, &linecap, file);
+		linelen = getline(&line, &linecap, file);
 		bus.line = line;
 		count++;
 		if (linelen > 0)

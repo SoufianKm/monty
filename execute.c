@@ -11,7 +11,7 @@
  */
 int execute(char *line, stack_t **stack, unsigned int count, FILE *file)
 {
-	instruction_t opst[] = {{"push", _push}, {"pall", _pall},{NULL, NULL}};
+	instruction_t opst[] = {{"push", _push}, {"pall", _pall}, {NULL, NULL}};
 	unsigned int i = 0;
 	char *op;
 

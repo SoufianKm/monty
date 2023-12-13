@@ -5,10 +5,10 @@
  * @head: stack head
  * @count: line_number
  */
-void f_queue(stack_t **head, unsigned int counter)
+void _queue(stack_t **head __attribute__((unused)), unsigned int count)
 {
-	(void)head;
-	(void)counter;
+	(void) count;
+
 	bus.lifi = 1;
 }
 
@@ -35,7 +35,7 @@ void addqueue(stack_t **head, int n)
 	{
 		while (aux->next)
 			aux = aux->next;
-		
+
 		aux->next = new_node;
 		new_node->prev = aux;
 	} else
