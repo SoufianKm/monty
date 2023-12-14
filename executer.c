@@ -22,6 +22,7 @@ int execute(char *line, stack_t **stack, unsigned int count, FILE *file)
 		{"sub", _sub},
 		{"div", _div},
 		{"mul", _mul},
+		{"mod", _mod},
 		{NULL, NULL}};
 	unsigned int i = 0;
 	char *opcode;
