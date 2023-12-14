@@ -9,7 +9,8 @@
  *  (3) => The file provided contains an invalid instruction.
  *  (4) => When the parameter passed to the instruction
  *         "push" is not an int.
- *  (6) => When the stack it empty for pint.
+ *  (5) => When the stack it empty for pint.
+ *  (6) => When the stack it empty for pop.
  * @line_nbr: error line number
  * @name: is filename or instruction function
  */
@@ -34,6 +35,10 @@ void print_err(int error_code, int line_nbr, char *name)
 			break;
 		case 5:
 			fprintf(stderr, "L%d: can't pint, stack empty\n", line_nbr);
+			exit(EXIT_FAILURE);
+			break;
+		case 6:
+			fprintf(stderr, "L%d: can't pop an empty stack\n", line_nbr);
 			exit(EXIT_FAILURE);
 			break;
 		default:
