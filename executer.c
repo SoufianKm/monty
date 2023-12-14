@@ -36,8 +36,8 @@ int execute(char *line, stack_t **stack, unsigned int count, FILE *file)
 
 	if (opcode && opcode_fun[i].opcode == NULL)
 	{
-		close_and_free(file, line, stack);
 		print_err(3, count, opcode);
+		close_and_free(file, line, stack);
 	}
 
 	return (1);

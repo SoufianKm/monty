@@ -9,7 +9,7 @@ void _add(stack_t **stack, unsigned int count)
 {
 	int sum;
 
-	if (!stack || !*stack || !(*stack)->next)
+	if (!stack || !*stack || (*stack)->next == NULL)
 		print_err(7, count, "add");
 
 	(*stack) = (*stack)->next;

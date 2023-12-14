@@ -21,29 +21,34 @@ void print_err(int error_code, int line_nbr, char *name)
 	{
 		case 1:
 			fprintf(stderr, "USAGE: monty file\n");
+			exit(EXIT_FAILURE);
 			break;
 		case 2:
 			fprintf(stderr, "Error: Can't open file %s\n", name);
+			exit(EXIT_FAILURE);
 			break;
 		case 3:
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_nbr, name);
 			break;
 		case 4:
 			fprintf(stderr, "L%d: usage: push integer\n", line_nbr);
+			exit(EXIT_FAILURE);
 			break;
 		case 5:
 			fprintf(stderr, "L%d: can't pint, stack empty\n", line_nbr);
+			exit(EXIT_FAILURE);
 			break;
 		case 6:
 			fprintf(stderr, "L%d: can't pop an empty stack\n", line_nbr);
+			exit(EXIT_FAILURE);
 			break;
 		case 7:
 			fprintf(stderr, "L%d: can't %s, stack too short\n", line_nbr, name);
+			exit(EXIT_FAILURE);
 			break;
 		default:
 			break;
 	}
-	exit(EXIT_FAILURE);
 }
 
 /**
@@ -57,4 +62,5 @@ void close_and_free(FILE *file, char *line, stack_t **stack)
 	fclose(file);
 	free(line), line = NULL;
 	free_stack(*stack), *stack = NULL;
+	exit(EXIT_FAILURE);
 }
