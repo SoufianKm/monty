@@ -16,13 +16,12 @@ int execute(char *line, stack_t **stack, unsigned int count, FILE *file)
 	char *op;
 
 	op = strtok(line, DELIM);
-	if (op && op[0] == '#')
-		return (0);
-	bus.arg = strtok(NULL, DELIM);
+	list_vars.arg = strtok(NULL, DELIM);
 	while (opst[i].opcode && op)
 	{
 		if (strcmp(op, opst[i].opcode) == 0)
-		{	opst[i].f(stack, count);
+		{
+			opst[i].f(stack, count);
 			return (0);
 		}
 		i++;
@@ -36,6 +35,7 @@ int execute(char *line, stack_t **stack, unsigned int count, FILE *file)
 		free_stack(*stack), *stack = NULL;
 		exit(EXIT_FAILURE);
 	}
+
 	return (1);
 }
 

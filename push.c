@@ -9,39 +9,32 @@
  */
 void _push(stack_t **head, unsigned int count)
 {
-	int n, j = 0, flag = 0;
+	int nbr, i = 0, flag = 0;
 
-	if (bus.arg)
+	if (list_vars.arg)
 	{
-		if (bus.arg[0] == '-')
-			j++;
+		if (list_vars.arg[0] == '-')
+			i++;
 
-		for (; bus.arg[j] != '\0'; j++)
+		for (; list_vars.arg[i] != '\0'; i++)
 		{
-			if (bus.arg[j] > 57 || bus.arg[j] < 48)
+			if (list_vars.arg[i] > 57 || list_vars.arg[i] < 48)
 				flag = 1;
 		}
+	}
 
-		if (flag == 1)
-		{
-			fprintf(stderr, "L%d: usage: push integer\n", count);
-			fclose(bus.file);
-			free(bus.line);
-			free_stack(*head);
-			exit(EXIT_FAILURE);
-		}
-	} else
+	if (!list_vars.arg || flag == 1)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", count);
-		fclose(bus.file);
-		free(bus.line);
+		fclose(list_vars.file);
+		free(list_vars.line);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
 
-	n = atoi(bus.arg);
-	if (bus.lifi == 0)
-		addnode(head, n);
+	nbr = atoi(list_vars.arg);
+	if (list_vars.mode == 0)
+		addnode(head, nbr);
 	else
-		addqueue(head, n);
+		addqueue(head, nbr);
 }

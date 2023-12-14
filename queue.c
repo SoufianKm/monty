@@ -1,18 +1,6 @@
 #include "monty.h"
 
 /**
- * f_queue - prints the top
- * @head: stack head
- * @count: line_number
- */
-void _queue(stack_t **head __attribute__((unused)), unsigned int count)
-{
-	(void) count;
-
-	bus.lifi = 1;
-}
-
-/**
  * addqueue - add node to the tail stack
  * @n: new value
  * @head: head of the stack

@@ -1,6 +1,7 @@
 #include "monty.h"
 
-bus_t bus = {NULL, NULL, NULL, 0};
+list_vars_t list_vars = { NULL, NULL, NULL, 0};
+
 /**
  * main - Entry point
  * @ac: size of arguments
@@ -18,24 +19,18 @@ int main(int ac, char **av)
 	ssize_t linelen;
 
 	if (ac != 2)
-	{
-		fprintf(stderr, "USAGE: monty file\n");
-		exit(EXIT_FAILURE);
-	}
+		print_err(1, 0, NULL);
 
 	file = fopen(av[1], "r");
-	bus.file = file;
+	list_vars.file = file;
 	if (!file)
-	{
-		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
-		exit(EXIT_FAILURE);
-	}
+		print_err(2, 0, av[1]);
 
 	while (linelen > 0)
 	{
 		line = NULL;
 		linelen = getline(&line, &linecap, file);
-		bus.line = line;
+		list_vars.line = line;
 		count++;
 		if (linelen > 0)
 			execute(line, &stack, count, file);

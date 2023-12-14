@@ -4,35 +4,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <limits.h>
-#include <errno.h>
 #include <unistd.h>
 #include <fcntl.h>
 #include <ctype.h>
-#include <sys/wait.h>
-#include <sys/stat.h>
 #include <sys/types.h>
 
 #define DELIM " \t\n"
 
 /**
- * struct bus_s - variables -args, file, line line
+ * struct list_vars - linked list represtation of a variables to share
  * @arg: value
  * @file: pointer to monty file
  * @line: line content
- * @lifi: flag change stack <-> queue
+ * @mode: flag change stack <-> queue
  *
- * Description: carries values through the program
+ * Description: share variables through the program
  */
-typedef struct bus_s
+typedef struct list_vars
 {
 	char *arg;
 	FILE *file;
 	char *line;
-	int lifi;
-} bus_t;
+	int mode;
+} list_vars_t;
 
-extern bus_t bus;
+/* GLOBAL OPCODE TOKENS */
+extern list_vars_t list_vars;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -71,5 +68,8 @@ void _push(stack_t **, unsigned int);
 void addnode(stack_t **, int);
 void addqueue(stack_t **, int);
 void _pall(stack_t **, unsigned int);
+
+/* Hanlding Errors */
+void print_err(int, int, char *);
 
 #endif
