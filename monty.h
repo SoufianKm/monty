@@ -74,6 +74,7 @@ void free_stack(stack_t *);
 /* Opcodes Operations */
 void _push(stack_t **, unsigned int);
 void _pall(stack_t **, unsigned int);
+void _pint(stack_t **, unsigned int);
 
 /* Handl Errors */
 void print_err(int, int, char *);

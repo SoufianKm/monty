@@ -31,3 +31,37 @@ void _push(stack_t **head, unsigned int count)
 	else
 		add_to_queue(head, nbr);
 }
+
+/**
+ * _pall - print the stack elements
+ * @head: stack head
+ * @count: error line number
+ *
+ * Return: no return
+*/
+void _pall(stack_t **head, __attribute__((unused)) unsigned int count)
+{
+	stack_t *h;
+
+	h = *head;
+	if (!h)
+		return;
+
+	while (h)
+	{
+		printf("%d\n", h->n);
+		h = h->next;
+	}
+}
+
+/**
+ * _pint - prints the value at the top of the stack.
+ * @stack: Pointer to a pointer pointing to head of the stack.
+ * @count: error line number.
+ */
+void _pint(stack_t **stack, unsigned int count)
+{
+	if (!stack || !*stack)
+		print_err(5, count, NULL);
+	printf("%d\n", (*stack)->n);
+}
