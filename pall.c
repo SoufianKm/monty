@@ -12,7 +12,7 @@ void _pall(stack_t **head, __attribute__((unused)) unsigned int count)
 	stack_t *h;
 
 	h = *head;
-	if (h == NULL)
+	if (!h)
 		return;
 
 	while (h)

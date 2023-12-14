@@ -17,19 +17,14 @@ void _push(stack_t **head, unsigned int count)
 			i++;
 
 		for (; list_vars.arg[i] != '\0'; i++)
-		{
 			if (list_vars.arg[i] > 57 || list_vars.arg[i] < 48)
 				flag = 1;
-		}
 	}
 
 	if (!list_vars.arg || flag == 1)
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", count);
-		fclose(list_vars.file);
-		free(list_vars.line);
-		free_stack(*head);
-		exit(EXIT_FAILURE);
+		print_err(3, count, NULL);
+		close_and_free(list_vars.file, list_vars.line, head);
 	}
 
 	nbr = atoi(list_vars.arg);

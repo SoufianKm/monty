@@ -6,17 +6,17 @@
  */
 void free_stack(stack_t *head)
 {
-	stack_t *aux;
+	stack_t *h;
 
 	if (!head)
 		return;
 
-	aux = head;
+	h = head;
 	while (head)
 	{
-		aux = head->next;
+		h = head->next;
 		free(head);
-		head = aux;
+		head = h;
 	}
 	free(head), head = NULL;
 }

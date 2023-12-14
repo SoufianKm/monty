@@ -62,14 +62,18 @@ typedef struct instruction_s
 } instruction_t;
 
 int execute(char *, stack_t **, unsigned int, FILE *);
-void free_stack(stack_t *);
 ssize_t getline(char **, size_t *, FILE *);
-void _push(stack_t **, unsigned int);
 void addnode(stack_t **, int);
 void addqueue(stack_t **, int);
+
+/* free memory */
+void free_stack(stack_t *);
+
+/* Opcodes operations */
+void _push(stack_t **, unsigned int);
 void _pall(stack_t **, unsigned int);
 
 /* Hanlding Errors */
 void print_err(int, int, char *);
-
+void close_and_free(FILE *, char *, stack_t **);
 #endif

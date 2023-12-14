@@ -9,23 +9,22 @@
 */
 void addnode(stack_t **head, int n)
 {
-	stack_t *new_node, *aux;
+	stack_t *h = NULL, *new = NULL;
 
-	aux = *head;
-	new_node = malloc(sizeof(stack_t));
-	if (new_node == NULL)
+	new = *head;
+	h = malloc(sizeof(stack_t));
+	if (!h)
 	{
-		free_stack(new_node);
-		free_stack(aux);
+		free_stack(h);
 		printf("Error\n");
 		exit(0);
 	}
 
-	if (aux)
-		aux->prev = new_node;
+	if (new)
+		new->prev = h;
 
-	new_node->n = n;
-	new_node->next = *head;
-	new_node->prev = NULL;
-	*head = new_node;
+	h->n = n;
+	h->prev = NULL;
+	h->next = *head;
+	*head = h;
 }
