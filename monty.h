@@ -78,12 +78,18 @@ void _pint(stack_t **, unsigned int);
 void _pop(stack_t **, unsigned int);
 void _swap(stack_t **, unsigned int);
 
+/* Operations */
+void operations(stack_t **, unsigned int, char, char *);
+
 /* Opcodes Operations 2 */
 void _add(stack_t **, unsigned int);
 void _nop(stack_t **, unsigned int);
 void _sub(stack_t **, unsigned int);
 void _div(stack_t **, unsigned int);
 void _mul(stack_t **, unsigned int);
+
+/* Opcodes Operations 3 */
+void _mod(stack_t **, unsigned int);
 
 /* Handl Errors */
 void print_err(int, int, char *);

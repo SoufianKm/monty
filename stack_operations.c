@@ -59,3 +59,42 @@ void add_to_queue(stack_t **head, int n)
 		h->prev = NULL;
 	}
 }
+
+void operations(stack_t **stack, unsigned int count,
+		char operator, char *opname)
+{
+	int sum;
+
+	if (!stack || !*stack || (*stack)->next == NULL)
+		print_err(7, count, opname);
+
+	if (operator == '/' || operator == '%')
+		if ((*stack)->n == 0)
+			print_err(8, count, NULL);
+
+	(*stack) = (*stack)->next;
+	switch (operator)
+	{
+		case '+':
+			sum = (*stack)->n + (*stack)->prev->n;
+			break;
+		case '-':
+			sum = (*stack)->n - (*stack)->prev->n;
+			break;
+		case '/':
+			sum = (*stack)->n / (*stack)->prev->n;
+			break;
+		case '*':
+			sum = (*stack)->n * (*stack)->prev->n;
+			break;
+		case '%':
+			sum = (*stack)->n % (*stack)->prev->n;
+			break;
+		default:
+			break;
+	}
+
+	(*stack)->n = sum;
+	free((*stack)->prev);
+	(*stack)->prev = NULL;
+}

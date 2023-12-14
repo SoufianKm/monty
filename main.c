@@ -32,7 +32,7 @@ int main(int ac, char **av)
 		linelen = getline(&line, &linecap, file);
 		list_vars.line = line;
 		count++;
-		if (linelen > 0)
+		if (linelen != 0)
 			execute(line, &stack, count, file);
 
 		free(line);

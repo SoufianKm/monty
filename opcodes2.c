@@ -7,16 +7,7 @@
  */
 void _add(stack_t **stack, unsigned int count)
 {
-	int sum;
-
-	if (!stack || !*stack || (*stack)->next == NULL)
-		print_err(7, count, "add");
-
-	(*stack) = (*stack)->next;
-	sum = (*stack)->n + (*stack)->prev->n;
-	(*stack)->n = sum;
-	free((*stack)->prev);
-	(*stack)->prev = NULL;
+	operations(stack, count, '+', "add");
 }
 
 /**
@@ -35,17 +26,7 @@ void _nop(__attribute__((unused)) stack_t **stack,
  */
 void _sub(stack_t **stack, unsigned int count)
 {
-	int sum;
-
-	if (!stack || !*stack || (*stack)->next == NULL)
-
-		print_err(7, count, "sub");
-
-	(*stack) = (*stack)->next;
-	sum = (*stack)->n - (*stack)->prev->n;
-	(*stack)->n = sum;
-	free((*stack)->prev);
-	(*stack)->prev = NULL;
+	operations(stack, count, '-', "sub");
 }
 
 /**
@@ -56,19 +37,7 @@ void _sub(stack_t **stack, unsigned int count)
  */
 void _div(stack_t **stack, unsigned int count)
 {
-	int sum;
-
-	if (!stack || !*stack || (*stack)->next == NULL)
-		print_err(7, count, "div");
-
-	if ((*stack)->n == 0)
-		print_err(8, count, NULL);
-
-	(*stack) = (*stack)->next;
-	sum = (*stack)->n / (*stack)->prev->n;
-	(*stack)->n = sum;
-	free((*stack)->prev);
-	(*stack)->prev = NULL;
+	operations(stack, count, '/', "div");
 }
 
 /**
@@ -80,14 +49,5 @@ void _div(stack_t **stack, unsigned int count)
  */
 void _mul(stack_t **stack, unsigned int count)
 {
-	int sum;
-
-	if (!stack || !*stack || (*stack)->next == NULL)
-		print_err(7, count, "mul");
-
-	(*stack) = (*stack)->next;
-	sum = (*stack)->n * (*stack)->prev->n;
-	(*stack)->n = sum;
-	free((*stack)->prev);
-	(*stack)->prev = NULL;
+	operations(stack, count, '*', "mul");
 }
