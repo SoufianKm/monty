@@ -21,7 +21,7 @@ void _push(stack_t **head, unsigned int count)
 
 	if (!list_vars.arg || flag == 1)
 	{
-		print_err(3, count, NULL);
+		print_err(4, count, NULL);
 		close_and_free(list_vars.file, list_vars.line, head);
 	}
 
@@ -84,4 +84,27 @@ void _pop(stack_t **stack, unsigned int count)
 		(*stack)->prev = NULL;
 
 	free(tmp);
+}
+
+/**
+ * _swap - swaps the top two elements of the stack.
+ * @stack: pointer to a pointer pointing to head of the stack.
+ * @count: error line number.
+ */
+void _swap(stack_t **stack, unsigned int count)
+{
+	stack_t *tmp;
+
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+		print_err(7, count, NULL);
+
+	tmp = (*stack)->next;
+	(*stack)->next = tmp->next;
+	if (tmp->next != NULL)
+		tmp->next->prev = *stack;
+
+	tmp->next = *stack;
+	(*stack)->prev = tmp;
+	tmp->prev = NULL;
+	*stack = tmp;
 }

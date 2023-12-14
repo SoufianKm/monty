@@ -16,6 +16,7 @@ int execute(char *line, stack_t **stack, unsigned int count, FILE *file)
 		{"pall", _pall},
 		{"pint", _pint},
 		{"pop", _pop},
+		{"swap", _swap},
 		{NULL, NULL}};
 	unsigned int i = 0;
 	char *opcode;
@@ -34,7 +35,7 @@ int execute(char *line, stack_t **stack, unsigned int count, FILE *file)
 
 	if (opcode && opcode_fun[i].opcode == NULL)
 	{
-		print_err(4, count, opcode);
+		print_err(3, count, opcode);
 		close_and_free(file, line, stack);
 	}
 

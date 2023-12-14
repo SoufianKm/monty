@@ -7,10 +7,11 @@
  *  (1) => Missed file or more than one file to the program.
  *  (2) => The file provided is not a file that can be opened or read.
  *  (3) => The file provided contains an invalid instruction.
- *  (4) => When the parameter passed to the instruction
- *         "push" is not an int.
- *  (5) => When the stack it empty for pint.
- *  (6) => When the stack it empty for pop.
+ *  (4) => If argument is not an integer or if there is no
+ *  argument given to "push"
+ *  (5) => If the stack is empty for "pint".
+ *  (6) => If the stack is empty for "pop".
+ *  (7) => If the stack contains less than two elements for "swap".
  * @line_nbr: error line number
  * @name: is filename or instruction function
  */
@@ -27,11 +28,11 @@ void print_err(int error_code, int line_nbr, char *name)
 			exit(EXIT_FAILURE);
 			break;
 		case 3:
-			fprintf(stderr, "L%d: usage: push integer\n", line_nbr);
-			exit(EXIT_FAILURE);
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_nbr, name);
 			break;
 		case 4:
-			fprintf(stderr, "L%d: unknown instruction %s\n", line_nbr, name);
+			fprintf(stderr, "L%d: usage: push integer\n", line_nbr);
+			exit(EXIT_FAILURE);
 			break;
 		case 5:
 			fprintf(stderr, "L%d: can't pint, stack empty\n", line_nbr);
@@ -39,6 +40,10 @@ void print_err(int error_code, int line_nbr, char *name)
 			break;
 		case 6:
 			fprintf(stderr, "L%d: can't pop an empty stack\n", line_nbr);
+			exit(EXIT_FAILURE);
+			break;
+		case 7:
+			fprintf(stderr, "L%d: can't swap, stack too short\n", line_nbr);
 			exit(EXIT_FAILURE);
 			break;
 		default:
