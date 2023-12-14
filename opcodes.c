@@ -96,7 +96,7 @@ void _swap(stack_t **stack, unsigned int count)
 	stack_t *tmp;
 
 	if (!stack || !*stack || !(*stack)->next)
-		print_err(7, count, NULL);
+		print_err(7, count, "swap");
 
 	tmp = (*stack)->next;
 	(*stack)->next = tmp->next;

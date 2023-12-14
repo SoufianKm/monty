@@ -11,8 +11,7 @@
  *  argument given to "push".
  *  (5) => If the stack is empty for "pint".
  *  (6) => If the stack is empty for "pop".
- *  (7) => If the stack contains less than two elements for "swap".
- *  (8) => If the stack contains less than two elements for "add".
+ *  (7) => If the stack contains less than two elements for an opcode.
  * @line_nbr: error line number
  * @name: is filename or instruction function
  */
@@ -39,10 +38,7 @@ void print_err(int error_code, int line_nbr, char *name)
 			fprintf(stderr, "L%d: can't pop an empty stack\n", line_nbr);
 			break;
 		case 7:
-			fprintf(stderr, "L%d: can't swap, stack too short\n", line_nbr);
-			break;
-		case 8:
-			fprintf(stderr, "L%d: can't add, stack too short\n", line_nbr);
+			fprintf(stderr, "L%d: can't %s, stack too short\n", line_nbr, name);
 			break;
 		default:
 			break;

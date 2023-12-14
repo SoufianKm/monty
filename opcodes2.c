@@ -10,7 +10,7 @@ void _add(stack_t **stack, unsigned int count)
 	int sum;
 
 	if (!stack || !*stack || !(*stack)->next)
-		print_err(8, count, NULL);
+		print_err(7, count, "add");
 
 	(*stack) = (*stack)->next;
 	sum = (*stack)->n + (*stack)->prev->n;
