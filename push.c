@@ -2,10 +2,8 @@
 
 /**
  * _push - add node to the stack
- * @head: stack head
+ * @head: doubly linked list of head stack
  * @count: error line number
- *
- * Return: no return
  */
 void _push(stack_t **head, unsigned int count)
 {
@@ -29,7 +27,7 @@ void _push(stack_t **head, unsigned int count)
 
 	nbr = atoi(list_vars.arg);
 	if (list_vars.mode == 0)
-		addnode(head, nbr);
+		add_to_stack(head, nbr);
 	else
-		addqueue(head, nbr);
+		add_to_queue(head, nbr);
 }

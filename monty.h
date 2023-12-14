@@ -63,17 +63,20 @@ typedef struct instruction_s
 
 int execute(char *, stack_t **, unsigned int, FILE *);
 ssize_t getline(char **, size_t *, FILE *);
-void addnode(stack_t **, int);
-void addqueue(stack_t **, int);
 
-/* free memory */
+/* Stacks operations */
+void add_to_stack(stack_t **, int);
+void add_to_queue(stack_t **, int);
+
+/* Free Memory */
 void free_stack(stack_t *);
 
-/* Opcodes operations */
+/* Opcodes Operations */
 void _push(stack_t **, unsigned int);
 void _pall(stack_t **, unsigned int);
 
-/* Hanlding Errors */
+/* Handl Errors */
 void print_err(int, int, char *);
 void close_and_free(FILE *, char *, stack_t **);
+
 #endif
