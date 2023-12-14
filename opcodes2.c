@@ -18,3 +18,11 @@ void _add(stack_t **stack, unsigned int count)
 	free((*stack)->prev);
 	(*stack)->prev = NULL;
 }
+
+/**
+ * _nop - Doesn’t do anything.
+ * @stack: pointer to a pointer pointing to head of the stack.
+ * @count: error line number.
+ */
+void _nop(__attribute__((unused)) stack_t **stack,
+		__attribute__((unused)) unsigned int count) {}

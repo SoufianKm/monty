@@ -77,7 +77,10 @@ void _pall(stack_t **, unsigned int);
 void _pint(stack_t **, unsigned int);
 void _pop(stack_t **, unsigned int);
 void _swap(stack_t **, unsigned int);
+
+/* Opcodes Operations 2 */
 void _add(stack_t **, unsigned int);
+void _nop(stack_t **, unsigned int);
 
 /* Handl Errors */
 void print_err(int, int, char *);
