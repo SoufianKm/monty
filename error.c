@@ -12,6 +12,7 @@
  *  (5) => If the stack is empty for "pint".
  *  (6) => If the stack is empty for "pop".
  *  (7) => If the stack contains less than two elements for an opcode.
+ *  (8) => If the top element of the stack is 0.
  * @line_nbr: error line number
  * @name: is filename or instruction function
  */
@@ -44,6 +45,10 @@ void print_err(int error_code, int line_nbr, char *name)
 			break;
 		case 7:
 			fprintf(stderr, "L%d: can't %s, stack too short\n", line_nbr, name);
+			exit(EXIT_FAILURE);
+			break;
+		case 8:
+			fprintf(stderr, "L%d: division by zero\n", line_nbr);
 			exit(EXIT_FAILURE);
 			break;
 		default:

@@ -82,6 +82,7 @@ void _swap(stack_t **, unsigned int);
 void _add(stack_t **, unsigned int);
 void _nop(stack_t **, unsigned int);
 void _sub(stack_t **, unsigned int);
+void _div(stack_t **, unsigned int);
 
 /* Handl Errors */
 void print_err(int, int, char *);

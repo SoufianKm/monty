@@ -47,3 +47,26 @@ void _sub(stack_t **stack, unsigned int count)
 	free((*stack)->prev);
 	(*stack)->prev = NULL;
 }
+
+/**
+ * _div - subtracts the top element of the stack from
+ * the second top element of the stack..
+ * @stack: pointer to a pointer pointing to head of the stack.
+ * @count: error line number.
+ */
+void _div(stack_t **stack, unsigned int count)
+{
+	int sum;
+
+	if (!stack || !*stack || (*stack)->next == NULL)
+		print_err(7, count, "div");
+
+	if ((*stack)->n == 0)
+		print_err(8, count, NULL);
+
+	(*stack) = (*stack)->next;
+	sum = (*stack)->n / (*stack)->prev->n;
+	(*stack)->n = sum;
+	free((*stack)->prev);
+	(*stack)->prev = NULL;
+}
