@@ -21,8 +21,8 @@ void _push(stack_t **head, unsigned int count)
 
 	if (!list_vars.arg || flag == 1)
 	{
-		print_err(4, count, NULL);
 		close_and_free(list_vars.file, list_vars.line, head);
+		print_err(4, count, NULL);
 	}
 
 	nbr = atoi(list_vars.arg);
@@ -95,7 +95,7 @@ void _swap(stack_t **stack, unsigned int count)
 {
 	stack_t *tmp;
 
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	if (!stack || !*stack || !(*stack)->next)
 		print_err(7, count, NULL);
 
 	tmp = (*stack)->next;
