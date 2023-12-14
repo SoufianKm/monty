@@ -30,7 +30,7 @@ int execute(char *line, stack_t **stack, unsigned int count, FILE *file)
 	opcode = strtok(line, DELIM);
 	if (!opcode)
 		return (1);
-	else if (op && op[0] == '#')
+	else if (opcode && opcode[0] == '#')
 		return (0);
 
 	list_vars.arg = strtok(NULL, DELIM);
