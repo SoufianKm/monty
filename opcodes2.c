@@ -70,3 +70,24 @@ void _div(stack_t **stack, unsigned int count)
 	free((*stack)->prev);
 	(*stack)->prev = NULL;
 }
+
+/**
+ * _mul - multiplies the second top element of
+ * the stack with the top element of the stack.
+ * the second top element of the stack.
+ * @stack: pointer to a pointer pointing to head of the stack.
+ * @count: error line number.
+ */
+void _mul(stack_t **stack, unsigned int count)
+{
+	int sum;
+
+	if (!stack || !*stack || (*stack)->next == NULL)
+		print_err(7, count, "mul");
+
+	(*stack) = (*stack)->next;
+	sum = (*stack)->n * (*stack)->prev->n;
+	(*stack)->n = sum;
+	free((*stack)->prev);
+	(*stack)->prev = NULL;
+}
