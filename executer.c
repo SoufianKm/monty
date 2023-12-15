@@ -11,19 +11,10 @@
  */
 int execute(char *line, stack_t **stack, unsigned int count, FILE *file)
 {
-	instruction_t opcode_fun[] = {
-		{"push", _push},
-		{"pall", _pall},
-		{"pint", _pint},
-		{"pop", _pop},
-		{"swap", _swap},
-		{"add", _add},
-		{"nop", _nop},
-		{"sub", _sub},
-		{"div", _div},
-		{"mul", _mul},
-		{"mod", _mod},
-		{NULL, NULL}};
+	instruction_t opcode_fun[] = {{"push", _push}, {"pall", _pall},
+		{"pint", _pint}, {"pop", _pop}, {"swap", _swap}, {"add", _add},
+		{"nop", _nop}, {"sub", _sub}, {"div", _div}, {"mul", _mul},
+		{"mod", _mod}, {NULL, NULL}};
 	unsigned int i = 0;
 	char *opcode;
 
@@ -52,4 +43,3 @@ int execute(char *line, stack_t **stack, unsigned int count, FILE *file)
 
 	return (1);
 }
-
